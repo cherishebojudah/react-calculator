@@ -1,5 +1,6 @@
 import React from 'react';
 import './Layout.css';
+import Output from './Output';
 
 const Layout = () => {
     const HandleClick = () => {}
@@ -8,6 +9,7 @@ const Layout = () => {
         <div className='frame'>
             <div className='calculator'>
             <br></br>
+            <Output></Output>
 
             <div className='keys'>
                 <input type='button' value={'C'} className='button clear' onClick={HandleClick}></input>
