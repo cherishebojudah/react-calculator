@@ -1,9 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Layout.css';
 import Output from './Output';
 
 const Layout = () => {
-    const HandleClick = () => {}
+    let [input, setInput] = useState('0')
+    let [result, setResult] = useState('')
+
+    const HandleClick = (event) => {
+        const value = event.target.value;
+        if (value === '=') {
+            if (input !== '') {
+                let res = '' 
+                try {
+                    res = eval(input)
+                } catch(err) {
+                    setResult('Math error')
+                }
+                if (res === undefined) {
+                    setResult('Math error')
+                }
+                else {
+                    setResult(input + '=')
+                    setInput(res)
+                }
+            }
+        }
+        else if (value === 'C') {
+            setInput('0')
+            setResult('')
+        }
+        else if (value === 'DEL') {
+            let str = input
+            str = str.substr(0, str.length-1)
+            setInput(str)
+        }
+         else if (input === '0') {
+             setInput(value)
+         }
+         else {
+             setInput((input += value))
+         }
+    }
 
     return (
         <div className='frame'>
