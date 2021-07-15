@@ -46,7 +46,9 @@ const Layout = () => {
         <div className='frame'>
             <div className='calculator'>
             <br></br>
-            <Output></Output>
+            <Output user={input} answer={result}/>
+            <br></br>
+            <br></br>
 
             <div className='keys'>
                 <input type='button' value={'C'} className='button clear' onClick={HandleClick}></input>
